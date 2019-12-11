@@ -1,0 +1,17 @@
+Function export with fetch
+https://developer.mozilla.org/ru/docs/WebAssembly/Loading_and_running
+
+The reason of using emru (a server must be run before using)
+https://developer.mozilla.org/ru/docs/WebAssembly/C_to_wasm
+
+recommendation for loading from google
+https://developers.google.com/web/updates/2018/04/loading-wasm
+
+https://habr.com/ru/post/342180/
+https://wasdk.github.io/WasmFiddle/
+https://developer.mozilla.org/ru/docs/WebAssembly/Loading_and_running
+https://developer.mozilla.org/ru/docs/WebAssembly/C_to_wasm
+https://www.freecodecamp.org/news/get-started-with-webassembly-using-only-14-lines-of-javascript-b37b6aaca1e4/
+https://medium.com/front-end-weekly/webassembly-part-3-different-ways-to-call-the-exported-function-in-webassembly-194830bad873
+http://localhost:9000/
+

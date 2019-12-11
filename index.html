@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>WebAssembly Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+	<input type="text" id="facParam">
+
+	<input value="JS test" type="button" onclick="time(document.getElementById('facParam').value, 'js')">
+	<input value="WASM test" type="button" onclick="time(document.getElementById('facParam').value, 'wasm')">
+    	<!-- Include the JavaScript glue code. -->
+    	<!-- This will load the WebAssembly module and run its main. --> 
+    	<script src="fact.js"></script>
+		<script>
+		function time(n, mode) {
+				var t0 = performance.now();
+				if (mode == 'js') {
+					for (var i = 1; i < n; i++) {
+						if (i % 1000 === 0) {
+							var t1 = performance.now();
+							console.log("count " + i + ": " + (t1 - t0).toFixed(2));
+						}
+						facJS(n);
+					}
+				} else {
+					Module.ccall(
+						'fact' // name of C function 
+						, 'number' // return type
+                        , 'number' // argument types
+                        , [n]); // arguments
+				}
+				var t1 = performance.now();
+				alert("exec time: " + (t1 - t0).toFixed(2));
+				console.log("full time: " + (t1 - t0).toFixed(2));
+		}
+		
+		function facJS(n) {
+			return n ? n * facJS(n - 1) : 1;
+		}
+		</script>
+	</script>
+  </body>
+</html> 
